@@ -19,7 +19,7 @@ public class SchoolController {
     @ApiResponses(value = {
             @ApiResponse( code = 200 , message = "SUCCESS", response = School.class),
             @ApiResponse(code = 404, message = "NOT FOUND",response = Exception.class),
-            
+
     }
 
     )

@@ -32,5 +32,10 @@ public class School {
     public void removeStudent(Student student){
         students.remove(student);
     }
-
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "shcool"
+    )
+    private List<User> users;
 }
