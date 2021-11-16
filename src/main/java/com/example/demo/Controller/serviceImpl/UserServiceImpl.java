@@ -1,5 +1,6 @@
 package com.example.demo.Controller.serviceImpl;
 
+import com.example.demo.entities.Role;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepository;
 import com.example.demo.service.UserService;
@@ -39,5 +40,20 @@ public class UserServiceImpl implements UserService {
             return id;
         }
         return id;
+    }
+
+    @Override
+    public Role saveRole(Role role) {
+        return null;
+    }
+
+    @Override
+    public void addRoleToUser(String username, String roleName) {
+
+    }
+
+    @Override
+    public User getUser(String username) {
+        return null;
     }
 }
