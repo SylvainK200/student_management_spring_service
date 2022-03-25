@@ -1,10 +1,13 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -21,13 +24,4 @@ public class Student {
     private String department;
     @ManyToOne
     private School school;
-    @ManyToMany(
-            fetch =  FetchType.EAGER
-    )
-    @JoinTable(
-            name= "students_subjects",
-            joinColumns = @JoinColumn(name="student_id"),
-            inverseJoinColumns = @JoinColumn(name="subject_id")
-    )
-    private List<Subject> subjects;
 }

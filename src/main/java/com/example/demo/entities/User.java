@@ -1,11 +1,10 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 @Entity
 @Data
@@ -20,5 +19,8 @@ public class User {
     @ManyToOne
     private School school;
     @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Role> roles = new ArrayList<>();
+    private List<Role> roles = new ArrayList<>();
+
+    @Column(columnDefinition = "boolean default true")
+    private boolean active;
 }

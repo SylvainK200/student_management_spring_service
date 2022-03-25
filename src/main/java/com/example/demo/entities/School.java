@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -20,22 +22,4 @@ public class School {
     @Column(nullable=false)
     private String name ;
     private String quater;
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "school"
-    )
-    private List<Student> students;
-    public void addStudent(Student student){
-        students.add(student);
-    }
-    public void removeStudent(Student student){
-        students.remove(student);
-    }
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "school"
-    )
-    private List<User> users;
 }

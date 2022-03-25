@@ -1,9 +1,12 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -18,12 +21,7 @@ public class Subject {
     @Column(nullable = false)
     private String name;
     private int numberOfCredit;
-    @ManyToMany(
-            mappedBy = "subjects",
-            fetch= FetchType.LAZY
-    )
-    private List<Student> students;
-    @ManyToOne(fetch = FetchType.EAGER)
 
+    @ManyToOne(fetch = FetchType.EAGER)
     private Teacher teacher;
 }

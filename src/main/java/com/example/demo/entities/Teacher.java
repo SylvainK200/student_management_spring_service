@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,9 +19,4 @@ public class Teacher {
     @Temporal(TemporalType.DATE)
     private Date birthdate;
     private String matricule;
-    @OneToMany(
-            fetch = FetchType.EAGER,
-            mappedBy = "teacher"
-    )
-    private List<Subject> subjects ;
    }
